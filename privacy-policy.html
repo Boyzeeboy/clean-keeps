@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — CleanKeeps</title>
+<meta name="description" content="How CleanKeeps collects, uses and protects your personal information.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FAF6EE;--ivory-2:#F5EFE3;--stone:#EBE3D5;--taupe:#A89A85;
+    --charcoal:#262220;--charcoal-soft:#4A443D;--brass:#A98A4E;--brass-light:#C2A468;
+    --line:rgba(38,34,32,0.12);
+    --serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",-apple-system,system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);color:var(--charcoal);background:var(--ivory);font-weight:300;line-height:1.75;font-size:16.5px;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--brass);color:var(--ivory);}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12;}
+  a{color:var(--brass);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s ease;}
+  a:hover{border-color:var(--brass);}
+  .eyebrow{font-family:var(--sans);font-size:0.72rem;font-weight:500;letter-spacing:0.26em;text-transform:uppercase;color:var(--brass);}
+
+  /* Header */
+  header{border-bottom:1px solid var(--line);background:var(--ivory);}
+  .nav{max-width:1100px;margin:0 auto;padding:24px 40px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:var(--serif);font-size:1.6rem;letter-spacing:0.04em;color:var(--charcoal);border:none;}
+  .logo .dot{color:var(--brass);}
+  .back{font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--charcoal-soft);border:none;}
+  .back:hover{color:var(--brass);border:none;}
+  .back span{color:var(--brass);}
+
+  /* Page intro */
+  .page-head{max-width:820px;margin:0 auto;padding:90px 40px 50px;text-align:center;}
+  .page-head h1{font-size:clamp(2.4rem,5vw,3.6rem);margin:22px 0 18px;}
+  .page-head .meta{font-size:0.82rem;letter-spacing:0.04em;color:var(--taupe);}
+
+  /* Disclaimer banner */
+  .disclaimer{max-width:820px;margin:0 auto 60px;padding:26px 32px;background:var(--ivory-2);border:1px solid var(--line);border-left:3px solid var(--brass);}
+  .disclaimer strong{font-weight:500;color:var(--charcoal);}
+  .disclaimer p{font-size:0.92rem;color:var(--charcoal-soft);}
+  .disclaimer p + p{margin-top:12px;}
+
+  /* Body content */
+  .content{max-width:820px;margin:0 auto;padding:0 40px 110px;}
+  .content section{padding:38px 0;border-top:1px solid var(--line);}
+  .content section:first-of-type{border-top:none;padding-top:10px;}
+  .content h2{font-size:1.85rem;margin-bottom:6px;}
+  .content h2 .n{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--brass);margin-right:14px;}
+  .content h3{font-size:1.25rem;margin:26px 0 10px;}
+  .content p{margin-bottom:16px;color:var(--charcoal-soft);}
+  .content ul{list-style:none;margin:6px 0 18px;}
+  .content li{position:relative;padding-left:26px;margin-bottom:11px;color:var(--charcoal-soft);}
+  .content li::before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border:1px solid var(--brass);transform:rotate(45deg);}
+  .content strong{font-weight:500;color:var(--charcoal);}
+  .ph{color:var(--brass);font-weight:400;background:rgba(169,138,78,0.08);padding:1px 6px;border-radius:2px;}
+
+  /* Footer */
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px;}
+  footer{background:var(--charcoal);color:rgba(250,246,238,0.7);padding:90px 0 40px;}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.6fr;gap:50px;padding-bottom:60px;border-bottom:1px solid rgba(250,246,238,0.12);}
+  .foot-logo{font-family:var(--serif);font-size:1.9rem;color:var(--ivory);margin-bottom:18px;}
+  .foot-logo .dot{color:var(--brass-light);}
+  .foot-brand p{font-size:0.95rem;max-width:280px;line-height:1.7;}
+  .foot-col h5{font-family:var(--sans);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--brass-light);margin-bottom:22px;font-weight:500;}
+  .foot-col a{display:block;font-size:0.92rem;margin-bottom:13px;color:rgba(250,246,238,0.7);transition:color .4s ease;border:none;}
+  .foot-col a:hover{color:var(--ivory);}
+  .journal h5{margin-bottom:14px;}
+  .journal p{font-size:0.9rem;margin-bottom:20px;line-height:1.6;}
+  .journal-form{display:flex;border-bottom:1px solid rgba(250,246,238,0.3);}
+  .journal-form input{flex:1;background:transparent;border:none;color:var(--ivory);font-family:var(--sans);font-weight:300;padding:8px 0;font-size:0.95rem;}
+  .journal-form input:focus{outline:none;}
+  .journal-form input::placeholder{color:rgba(250,246,238,0.4);}
+  .journal-form button{background:transparent;border:none;color:var(--brass-light);cursor:pointer;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;padding:0 4px;}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:30px;flex-wrap:wrap;gap:16px;}
+  .foot-tag{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--ivory);}
+  .foot-legal{font-size:0.78rem;color:rgba(250,246,238,0.45);}
+  .foot-legal a{color:rgba(250,246,238,0.45);border:none;}
+  .foot-legal a:hover{color:var(--ivory);}
+
+  @media(max-width:900px){
+    .foot-grid{grid-template-columns:1fr 1fr;gap:40px;}
+  }
+
+  @media(max-width:680px){
+    body{font-size:16px;}
+    .nav,.page-head,.disclaimer,.content{padding-left:24px;padding-right:24px;}
+    .page-head{padding-top:60px;}
+    .content section{padding:30px 0;}
+    .foot-grid{grid-template-columns:1fr;gap:40px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="cleankeeps-homepage.html" class="logo">CleanKeeps<span class="dot">.</span></a>
+    <a href="cleankeeps-homepage.html" class="back"><span>&larr;</span>&nbsp; Back to Home</a>
+  </div>
+</header>
+
+<div class="page-head">
+  <span class="eyebrow">Privacy</span>
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated <span class="ph">[insert date]</span></p>
+</div>
+
+<div class="disclaimer">
+  <p><strong>Please read first.</strong> This is a strong starting template written in plain English — it is not finished legal text or legal advice. Before publishing, please have it reviewed by a qualified professional and replace every <span class="ph">[bracketed]</span> detail with your own. The cookies section in particular should be confirmed against what your website actually uses.</p>
+  <p>Most small businesses that handle personal information must pay an annual data protection fee to the Information Commissioner's Office (ICO) and register. It is inexpensive and quick — please confirm your position at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> so you are covered from day one.</p>
+</div>
+
+<div class="content">
+
+  <section>
+    <h2><span class="n">01</span>Who we are</h2>
+    <p>CleanKeeps provides private home care for fine homes in Bath and the surrounding countryside. We are a husband-and-wife team, Kirsten and Warren, who care personally for a select number of homes.</p>
+    <p>For the purposes of UK data protection law, the data controller is <span class="ph">[Warren Rossiter trading as CleanKeeps]</span>, of <span class="ph">[business address]</span>. If you have any questions about this policy or about how we handle your information, you can reach us at <span class="ph">[email address]</span> or <span class="ph">[telephone number]</span>.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">02</span>The information we collect</h2>
+    <p>We only collect the information we need to care for your home well and to keep in touch with you. This typically includes:</p>
+    <ul>
+      <li><strong>Contact details</strong> — your name, address, email and telephone number.</li>
+      <li><strong>Information about your home</strong> — its location, the rooms and areas we care for, and any preferences, routines or instructions you share with us.</li>
+      <li><strong>Access information</strong> — arrangements for entering your home, including keys, alarm codes or entry instructions where you have asked us to hold them.</li>
+      <li><strong>Correspondence</strong> — enquiries, messages and notes from our conversations and consultations.</li>
+      <li><strong>Payment information</strong> — the details needed to invoice you and process payment for your care plan.</li>
+    </ul>
+    <p>We do not knowingly collect any special category data, and we ask that you do not share sensitive personal information with us unless it is genuinely necessary for your care.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">03</span>How and why we use it</h2>
+    <p>We use your information to provide and manage the home care you have asked us for, to arrange consultations and visits, to communicate with you, to invoice you, and to keep our own business records. Our lawful bases for doing so are:</p>
+    <ul>
+      <li><strong>Contract</strong> — to carry out the care plan we have agreed with you.</li>
+      <li><strong>Legitimate interests</strong> — to run our business responsibly, keep proper records, and respond to your enquiries, in a way that does not override your own rights.</li>
+      <li><strong>Legal obligation</strong> — to meet our tax, accounting and other legal duties.</li>
+      <li><strong>Consent</strong> — where you have opted in to occasional updates from us, which you may withdraw at any time.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><span class="n">04</span>Keys and access</h2>
+    <p>We understand that trusting someone with access to your home is a significant thing. Where you ask us to hold keys or access details, we keep them securely, label them discreetly so they cannot be linked to your address by anyone else, and limit access to them strictly to the two of us. Access information is never shared with third parties and is returned or destroyed when our arrangement ends.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">05</span>Sharing your information</h2>
+    <p>We do not sell your information, and we never share it for marketing purposes. We share it only where it is necessary to run our service properly — for example with <span class="ph">[our accountant or bookkeeper]</span> for invoicing and tax, or with <span class="ph">[a payment provider]</span> to process payments. Any such providers act on our instructions and are required to keep your information secure.</p>
+    <p>We may also disclose information where we are required to by law, or to protect our rights, property or safety.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">06</span>How long we keep it</h2>
+    <p>We keep your information only for as long as we need it. While you are a client, we keep it for the life of your care plan. After our arrangement ends, we keep the records we are legally required to retain — for example financial records, which UK law generally requires us to hold for six years — and then securely delete or destroy the rest.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">07</span>Keeping it secure</h2>
+    <p>We take the security of your information seriously and use appropriate measures to protect it, including secure storage of physical keys and documents, password protection on our devices, and limiting access to your information to the two of us. No method of storage is ever completely secure, but we take reasonable care to safeguard everything you entrust to us.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">08</span>Your rights</h2>
+    <p>Under UK data protection law, you have the right to:</p>
+    <ul>
+      <li>Ask for a copy of the information we hold about you.</li>
+      <li>Ask us to correct anything that is inaccurate or incomplete.</li>
+      <li>Ask us to delete your information, where there is no longer a reason for us to keep it.</li>
+      <li>Ask us to restrict or object to how we use it.</li>
+      <li>Ask us to transfer your information to another provider.</li>
+      <li>Withdraw any consent you have given, at any time.</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us at <span class="ph">[email address]</span>. We will respond within the time limits set by law, and there is normally no charge.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">09</span>Marketing choices</h2>
+    <p>We will only send you occasional updates — such as our seasonal journal — if you have asked us to. You can ask us to stop at any time, either by replying to any message or by contacting us directly, and we will remove you promptly.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">10</span>Cookies</h2>
+    <p>Our website uses cookies. Please see our <a href="cookie-notice.html">Cookie Notice</a> for details of which cookies we use and how you can manage them.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">11</span>How to complain</h2>
+    <p>If you have a concern about how we have handled your information, please tell us first — we would always rather put things right ourselves. You also have the right to complain to the Information Commissioner's Office, the UK's data protection regulator, at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> or on 0303 123 1113.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">12</span>Changes to this policy</h2>
+    <p>We may update this policy from time to time. When we do, we will revise the date at the top of this page. Please check back occasionally to stay informed.</p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-logo">CleanKeeps<span class="dot">.</span></div>
+        <p>Discreet, dependable home care for a select number of fine homes in Bath and the surrounding countryside.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Our Care</h5>
+        <a href="cleankeeps-homepage.html#care">Signature Home Care</a>
+        <a href="cleankeeps-homepage.html#care">Seasonal &amp; Deep Care</a>
+        <a href="cleankeeps-homepage.html#care">Second Home &amp; Holiday-Let</a>
+        <a href="cleankeeps-homepage.html#philosophy">Our Philosophy</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="cleankeeps-homepage.html#about">About Us</a>
+        <a href="cleankeeps-homepage.html#process">How It Works</a>
+        <a href="cleankeeps-homepage.html#assurance">Trust &amp; Insurance</a>
+        <a href="cleankeeps-homepage.html#consult">Arrange a Consultation</a>
+      </div>
+      <div class="foot-col journal">
+        <h5>The CleanKeeps Journal</h5>
+        <p>Occasional, considered notes on caring for fine homes through the seasons. No noise &mdash; simply a quiet letter, now and then.</p>
+        <div class="journal-form">
+          <input type="email" placeholder="Your email address">
+          <button onclick="return false;">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-tag">Private home care for fine homes in Bath.</div>
+      <div class="foot-legal">
+        &copy; 2026 CleanKeeps &nbsp;·&nbsp;
+        <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="cookie-notice.html">Cookie Notice</a> &nbsp;·&nbsp;
+        <a href="cleankeeps-homepage.html">Home</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

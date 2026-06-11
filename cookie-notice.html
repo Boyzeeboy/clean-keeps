@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Notice — CleanKeeps</title>
+<meta name="description" content="How CleanKeeps uses cookies on its website, and how you can manage them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FAF6EE;--ivory-2:#F5EFE3;--stone:#EBE3D5;--taupe:#A89A85;
+    --charcoal:#262220;--charcoal-soft:#4A443D;--brass:#A98A4E;--brass-light:#C2A468;
+    --line:rgba(38,34,32,0.12);
+    --serif:"Cormorant Garamond",Georgia,serif;--sans:"Inter",-apple-system,system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--sans);color:var(--charcoal);background:var(--ivory);font-weight:300;line-height:1.75;font-size:16.5px;-webkit-font-smoothing:antialiased;}
+  ::selection{background:var(--brass);color:var(--ivory);}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.12;}
+  a{color:var(--brass);text-decoration:none;border-bottom:1px solid transparent;transition:border-color .3s ease;}
+  a:hover{border-color:var(--brass);}
+  .eyebrow{font-family:var(--sans);font-size:0.72rem;font-weight:500;letter-spacing:0.26em;text-transform:uppercase;color:var(--brass);}
+
+  header{border-bottom:1px solid var(--line);background:var(--ivory);}
+  .nav{max-width:1100px;margin:0 auto;padding:24px 40px;display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:var(--serif);font-size:1.6rem;letter-spacing:0.04em;color:var(--charcoal);border:none;}
+  .logo .dot{color:var(--brass);}
+  .back{font-size:0.72rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--charcoal-soft);border:none;}
+  .back:hover{color:var(--brass);border:none;}
+  .back span{color:var(--brass);}
+
+  .page-head{max-width:820px;margin:0 auto;padding:90px 40px 50px;text-align:center;}
+  .page-head h1{font-size:clamp(2.4rem,5vw,3.6rem);margin:22px 0 18px;}
+  .page-head .meta{font-size:0.82rem;letter-spacing:0.04em;color:var(--taupe);}
+
+  .disclaimer{max-width:820px;margin:0 auto 60px;padding:26px 32px;background:var(--ivory-2);border:1px solid var(--line);border-left:3px solid var(--brass);}
+  .disclaimer strong{font-weight:500;color:var(--charcoal);}
+  .disclaimer p{font-size:0.92rem;color:var(--charcoal-soft);}
+
+  .content{max-width:820px;margin:0 auto;padding:0 40px 110px;}
+  .content section{padding:38px 0;border-top:1px solid var(--line);}
+  .content section:first-of-type{border-top:none;padding-top:10px;}
+  .content h2{font-size:1.85rem;margin-bottom:6px;}
+  .content h2 .n{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--brass);margin-right:14px;}
+  .content p{margin-bottom:16px;color:var(--charcoal-soft);}
+  .content ul{list-style:none;margin:6px 0 18px;}
+  .content li{position:relative;padding-left:26px;margin-bottom:11px;color:var(--charcoal-soft);}
+  .content li::before{content:"";position:absolute;left:4px;top:11px;width:6px;height:6px;border:1px solid var(--brass);transform:rotate(45deg);}
+  .content strong{font-weight:500;color:var(--charcoal);}
+  .ph{color:var(--brass);font-weight:400;background:rgba(169,138,78,0.08);padding:1px 6px;border-radius:2px;}
+
+  /* Cookie table */
+  .ctable{width:100%;border-collapse:collapse;margin:18px 0 8px;font-size:0.92rem;}
+  .ctable th{text-align:left;font-family:var(--sans);font-weight:500;font-size:0.68rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--brass);padding:0 16px 12px 0;border-bottom:1px solid var(--line);}
+  .ctable td{padding:14px 16px 14px 0;border-bottom:1px solid var(--line);color:var(--charcoal-soft);vertical-align:top;}
+  .ctable td:first-child{font-weight:500;color:var(--charcoal);white-space:nowrap;}
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 40px;}
+  footer{background:var(--charcoal);color:rgba(250,246,238,0.7);padding:90px 0 40px;}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.6fr;gap:50px;padding-bottom:60px;border-bottom:1px solid rgba(250,246,238,0.12);}
+  .foot-logo{font-family:var(--serif);font-size:1.9rem;color:var(--ivory);margin-bottom:18px;}
+  .foot-logo .dot{color:var(--brass-light);}
+  .foot-brand p{font-size:0.95rem;max-width:280px;line-height:1.7;}
+  .foot-col h5{font-family:var(--sans);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--brass-light);margin-bottom:22px;font-weight:500;}
+  .foot-col a{display:block;font-size:0.92rem;margin-bottom:13px;color:rgba(250,246,238,0.7);transition:color .4s ease;border:none;}
+  .foot-col a:hover{color:var(--ivory);}
+  .journal h5{margin-bottom:14px;}
+  .journal p{font-size:0.9rem;margin-bottom:20px;line-height:1.6;}
+  .journal-form{display:flex;border-bottom:1px solid rgba(250,246,238,0.3);}
+  .journal-form input{flex:1;background:transparent;border:none;color:var(--ivory);font-family:var(--sans);font-weight:300;padding:8px 0;font-size:0.95rem;}
+  .journal-form input:focus{outline:none;}
+  .journal-form input::placeholder{color:rgba(250,246,238,0.4);}
+  .journal-form button{background:transparent;border:none;color:var(--brass-light);cursor:pointer;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;padding:0 4px;}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:30px;flex-wrap:wrap;gap:16px;}
+  .foot-tag{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--ivory);}
+  .foot-legal{font-size:0.78rem;color:rgba(250,246,238,0.45);}
+  .foot-legal a{color:rgba(250,246,238,0.45);border:none;}
+  .foot-legal a:hover{color:var(--ivory);}
+
+  @media(max-width:900px){
+    .foot-grid{grid-template-columns:1fr 1fr;gap:40px;}
+  }
+
+  @media(max-width:680px){
+    body{font-size:16px;}
+    .nav,.page-head,.disclaimer,.content{padding-left:24px;padding-right:24px;}
+    .page-head{padding-top:60px;}
+    .content section{padding:30px 0;}
+    .foot-grid{grid-template-columns:1fr;gap:40px;}
+    .ctable,.ctable tbody,.ctable tr,.ctable td{display:block;width:100%;}
+    .ctable thead{display:none;}
+    .ctable td{padding:4px 0;border:none;}
+    .ctable tr{padding:16px 0;border-bottom:1px solid var(--line);}
+    .ctable td:first-child{white-space:normal;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="cleankeeps-homepage.html" class="logo">CleanKeeps<span class="dot">.</span></a>
+    <a href="cleankeeps-homepage.html" class="back"><span>&larr;</span>&nbsp; Back to Home</a>
+  </div>
+</header>
+
+<div class="page-head">
+  <span class="eyebrow">Cookies</span>
+  <h1>Cookie Notice</h1>
+  <p class="meta">Last updated <span class="ph">[insert date]</span></p>
+</div>
+
+<div class="disclaimer">
+  <p><strong>Please read first.</strong> This is a short, plain-English template — not legal advice. The cookies a website sets depend entirely on how it is built, so before you publish this, please ask your website provider exactly which cookies your site uses and update the table below to match.</p>
+</div>
+
+<div class="content">
+
+  <section>
+    <h2><span class="n">01</span>What cookies are</h2>
+    <p>Cookies are small text files placed on your device when you visit a website. They help the site work properly, remember your choices, and — in some cases — help the owner understand how the site is being used. Most websites use them in some form.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">02</span>How we use them</h2>
+    <p>We keep our use of cookies to a minimum. Our website uses cookies only to help it function correctly and, where you have agreed, to help us understand how visitors find and use the site so we can improve it. We do not use cookies to track you across other websites, and we do not sell any information collected through them.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">03</span>The cookies we use</h2>
+    <p>The table below should be confirmed and completed with your website provider so it accurately reflects your live site.</p>
+    <table class="ctable">
+      <thead>
+        <tr><th>Cookie</th><th>Type</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Strictly necessary</td>
+          <td>Essential</td>
+          <td>Allow the website to load and function correctly, including basic security and page navigation. These do not require consent.</td>
+        </tr>
+        <tr>
+          <td><span class="ph">[Analytics]</span></td>
+          <td>Optional</td>
+          <td><span class="ph">[e.g. Google Analytics]</span> — helps us understand how visitors use the site, in aggregate. Only set if you have given consent.</td>
+        </tr>
+        <tr>
+          <td><span class="ph">[Other]</span></td>
+          <td><span class="ph">[—]</span></td>
+          <td><span class="ph">[Confirm with your website provider and list any further cookies here.]</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="n">04</span>Your consent</h2>
+    <p>Under UK law, we must obtain your consent before any non-essential cookies are placed on your device. Where our site uses such cookies, you will be asked to accept or decline them — usually through a banner when you first visit — and you can change your choice at any time.</p>
+    <p>If our website uses only strictly necessary cookies, a consent banner may not be required. Your website provider can confirm which applies to your site.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">05</span>Managing cookies</h2>
+    <p>You can control and delete cookies through your browser settings at any time. Most browsers let you block cookies or remove those already stored. Please note that blocking strictly necessary cookies may stop parts of the website from working as intended. Guidance for managing cookies in common browsers is available at <a href="https://www.aboutcookies.org" target="_blank" rel="noopener">aboutcookies.org</a>.</p>
+  </section>
+
+  <section>
+    <h2><span class="n">06</span>More information</h2>
+    <p>For more on how we handle your personal information generally, please see our <a href="privacy-policy.html">Privacy Policy</a>. If you have any questions about our use of cookies, you can reach us at <span class="ph">[email address]</span>.</p>
+  </section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-logo">CleanKeeps<span class="dot">.</span></div>
+        <p>Discreet, dependable home care for a select number of fine homes in Bath and the surrounding countryside.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Our Care</h5>
+        <a href="cleankeeps-homepage.html#care">Signature Home Care</a>
+        <a href="cleankeeps-homepage.html#care">Seasonal &amp; Deep Care</a>
+        <a href="cleankeeps-homepage.html#care">Second Home &amp; Holiday-Let</a>
+        <a href="cleankeeps-homepage.html#philosophy">Our Philosophy</a>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="cleankeeps-homepage.html#about">About Us</a>
+        <a href="cleankeeps-homepage.html#process">How It Works</a>
+        <a href="cleankeeps-homepage.html#assurance">Trust &amp; Insurance</a>
+        <a href="cleankeeps-homepage.html#consult">Arrange a Consultation</a>
+      </div>
+      <div class="foot-col journal">
+        <h5>The CleanKeeps Journal</h5>
+        <p>Occasional, considered notes on caring for fine homes through the seasons. No noise &mdash; simply a quiet letter, now and then.</p>
+        <div class="journal-form">
+          <input type="email" placeholder="Your email address">
+          <button onclick="return false;">Subscribe</button>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div class="foot-tag">Private home care for fine homes in Bath.</div>
+      <div class="foot-legal">
+        &copy; 2026 CleanKeeps &nbsp;·&nbsp;
+        <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp;
+        <a href="cookie-notice.html">Cookie Notice</a> &nbsp;·&nbsp;
+        <a href="cleankeeps-homepage.html">Home</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
