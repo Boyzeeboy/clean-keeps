@@ -574,26 +574,29 @@
         <p>If you would like to learn more about how we care for fine homes, we would be glad to meet you.</p>
         <p>There is no obligation, and never any pressure — only an unhurried conversation about your home and how we might look after it.</p>
       </div>
-      <div class="cform reveal">
+      <form class="cform reveal" id="consultForm" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="10de8f9b-982a-43d0-b602-c9ecded2273c">
+        <input type="hidden" name="subject" value="New consultation request from CleanKeeps website">
+        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
         <div class="field">
           <label for="name">Your Name</label>
-          <input type="text" id="name" placeholder="How may we address you?">
+          <input type="text" id="name" name="name" required placeholder="How may we address you?">
         </div>
         <div class="field">
           <label for="email">Email or Telephone</label>
-          <input type="text" id="email" placeholder="The best way to reach you">
+          <input type="text" id="email" name="email" required placeholder="The best way to reach you">
         </div>
         <div class="field">
           <label for="area">Where is your home?</label>
-          <input type="text" id="area" placeholder="Bath, the Cotswolds, or nearby">
+          <input type="text" id="area" name="area" placeholder="Bath, the Cotswolds, or nearby">
         </div>
         <div class="field">
           <label for="msg">A little about your home <span style="text-transform:none;letter-spacing:0;opacity:.6;">(optional)</span></label>
-          <textarea id="msg" rows="2" placeholder="Anything you would like us to know"></textarea>
+          <textarea id="msg" name="message" rows="2" placeholder="Anything you would like us to know"></textarea>
         </div>
-        <a href="#" class="btn btn-light" onclick="return false;">Request a Consultation</a>
-        <p class="note">We reply personally, usually within a day.</p>
-      </div>
+        <button type="submit" class="btn btn-light">Request a Consultation</button>
+        <p class="note" id="formStatus" role="status">We reply personally, usually within a day.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -659,6 +662,34 @@
     entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
   }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // Consultation form — submit in background, confirm inline
+  const consultForm = document.getElementById('consultForm');
+  const formStatus = document.getElementById('formStatus');
+  consultForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = consultForm.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(consultForm)
+      });
+      const data = await res.json();
+      if (data.success) {
+        consultForm.reset();
+        btn.textContent = 'Request Received';
+        formStatus.textContent = 'Thank you — we have received your request and will reply personally, usually within a day.';
+      } else {
+        throw new Error(data.message || 'Submission failed');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Request a Consultation';
+      formStatus.textContent = 'Something went wrong sending your request. Please try again, or email us directly.';
+    }
+  });
 </script>
 </body>
 </html>
