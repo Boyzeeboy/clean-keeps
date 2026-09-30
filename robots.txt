@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cleankeeps.co.uk/sitemap.xml
