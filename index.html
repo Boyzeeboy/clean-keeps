@@ -229,6 +229,9 @@
   .testi-row{display:grid;grid-template-columns:repeat(2,1fr);gap:50px;margin-top:100px;padding-top:70px;border-top:1px solid var(--line);}
   .mini-quote blockquote{font-family:var(--serif);font-size:1.35rem;line-height:1.5;font-style:italic;color:var(--charcoal-soft);margin-bottom:20px;}
   .mini-quote cite{font-style:normal;font-size:0.74rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--taupe);}
+  .testi-source{text-align:center;margin-top:70px;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;}
+  .testi-source a{color:var(--taupe);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:4px;transition:color .3s;}
+  .testi-source a:hover{color:var(--charcoal);}
 
   /* ---------- About ---------- */
   .about{background:var(--ivory-2);}
@@ -265,6 +268,10 @@
   .consult .eyebrow{color:var(--brass-light);}
   .consult h2{font-size:clamp(2.1rem,4vw,3.2rem);color:var(--ivory);margin:22px 0 24px;}
   .consult p{color:rgba(250,246,238,0.86);font-size:1.05rem;margin-bottom:8px;font-weight:300;}
+  .consult-direct{margin-top:40px;padding-top:30px;border-top:1px solid rgba(250,246,238,0.18);}
+  .consult-direct span{display:block;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--brass-light);margin-bottom:14px;}
+  .consult-direct a{display:block;font-family:var(--serif);font-size:1.45rem;color:var(--ivory);margin-bottom:6px;transition:color .4s ease;}
+  .consult-direct a:hover{color:var(--brass-light);}
   .cform{background:rgba(250,246,238,0.07);border:1px solid rgba(250,246,238,0.18);padding:46px 44px;backdrop-filter:blur(4px);}
   .cform .field{margin-bottom:26px;}
   .cform label{display:block;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(250,246,238,0.7);margin-bottom:10px;}
@@ -279,20 +286,16 @@
 
   /* ---------- Footer ---------- */
   footer{background:var(--charcoal);color:rgba(250,246,238,0.7);padding:90px 0 40px;}
-  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.6fr;gap:50px;padding-bottom:60px;border-bottom:1px solid rgba(250,246,238,0.12);}
+  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:50px;padding-bottom:60px;border-bottom:1px solid rgba(250,246,238,0.12);}
   .foot-logo{font-family:var(--serif);font-size:1.9rem;color:var(--ivory);margin-bottom:18px;}
   .foot-logo .dot{color:var(--brass-light);}
   .foot-brand p{font-size:0.95rem;max-width:280px;line-height:1.7;}
+  .foot-brand .foot-contact{margin-top:20px;}
+  .foot-contact a{color:var(--ivory);transition:color .4s ease;}
+  .foot-contact a:hover{color:var(--brass-light);}
   .foot-col h5{font-family:var(--sans);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--brass-light);margin-bottom:22px;font-weight:500;}
   .foot-col a{display:block;font-size:0.92rem;margin-bottom:13px;color:rgba(250,246,238,0.7);transition:color .4s ease;}
   .foot-col a:hover{color:var(--ivory);}
-  .journal h5{margin-bottom:14px;}
-  .journal p{font-size:0.9rem;margin-bottom:20px;line-height:1.6;}
-  .journal-form{display:flex;border-bottom:1px solid rgba(250,246,238,0.3);}
-  .journal-form input{flex:1;background:transparent;border:none;color:var(--ivory);font-family:var(--sans);font-weight:300;padding:8px 0;font-size:0.95rem;}
-  .journal-form input:focus{outline:none;}
-  .journal-form input::placeholder{color:rgba(250,246,238,0.4);}
-  .journal-form button{background:transparent;border:none;color:var(--brass-light);cursor:pointer;font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;padding:0 4px;}
   .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:30px;flex-wrap:wrap;gap:16px;}
   .foot-tag{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--ivory);}
   .foot-legal{font-size:0.78rem;color:rgba(250,246,238,0.45);}
@@ -497,19 +500,20 @@
   <div class="wrap">
     <div class="big-quote reveal">
       <span class="quote-mark">&ldquo;</span>
-      <blockquote>Knowing Kirsten and Warren are looking after the house has taken something off my mind that I didn't realise I was carrying. I return to a home that simply feels right.</blockquote>
-      <cite>— Homeowner, Royal Crescent</cite>
+      <blockquote>Kirsten and Warren are excellent. Thoughtful, well planned, punctual, great at solving tricky problems and a pleasure to work with.</blockquote>
+      <cite>— Carrie Alexander</cite>
     </div>
     <div class="testi-row reveal">
       <div class="mini-quote">
-        <blockquote>We have trusted them with our keys for three years. Discreet, dependable and quietly exceptional — exactly what a home like ours needs.</blockquote>
-        <cite>— Period Property Owner, Bathwick</cite>
+        <blockquote>Kirsten &amp; Warren provide us with excellent housekeeping services to ensure our Holiday Rentals in Bath are looking their best&hellip; Very trustworthy and provide the perfect service for us.</blockquote>
+        <cite>— Beth Ennis, Holiday Rentals in Bath</cite>
       </div>
       <div class="mini-quote">
-        <blockquote>For our second home, the peace of mind is everything. We arrive to a house that is warm, immaculate and ready — never a moment's worry.</blockquote>
-        <cite>— Second-Home Owner, the Cotswolds</cite>
+        <blockquote>Super helpful, professional and thorough&hellip; will be using for a monthly clean at new home. Thank you Kirsten and Warren!</blockquote>
+        <cite>— Nik D.</cite>
       </div>
     </div>
+    <p class="testi-source reveal"><a href="https://www.google.com/maps/place/CleanKeeps/@51.3801264,-2.36453,13z/data=!4m6!3m5!1s0x6685a21426138e71:0x41b4aa006ad9f80b!8m2!3d51.3801264!4d-2.36453!16s%2Fg%2F11xgjzhsrt" target="_blank" rel="noopener">Rated 5.0 from 6 reviews on Google</a></p>
   </div>
 </section>
 
@@ -573,6 +577,11 @@
         <h2>Arrange a private consultation</h2>
         <p>If you would like to learn more about how we care for fine homes, we would be glad to meet you.</p>
         <p>There is no obligation, and never any pressure — only an unhurried conversation about your home and how we might look after it.</p>
+        <div class="consult-direct">
+          <span>Or reach us directly</span>
+          <a href="tel:+447415988614">07415 988614</a>
+          <a href="mailto:contact@cleankeeps.co.uk">contact@cleankeeps.co.uk</a>
+        </div>
       </div>
       <form class="cform reveal" id="consultForm" action="https://api.web3forms.com/submit" method="POST">
         <input type="hidden" name="access_key" value="10de8f9b-982a-43d0-b602-c9ecded2273c">
@@ -608,6 +617,7 @@
       <div class="foot-brand">
         <div class="foot-logo">CleanKeeps<span class="dot">.</span></div>
         <p>Discreet, dependable home care for a select number of fine homes in Bath and the surrounding countryside.</p>
+        <p class="foot-contact"><a href="tel:+447415988614">07415 988614</a><br><a href="mailto:contact@cleankeeps.co.uk">contact@cleankeeps.co.uk</a></p>
       </div>
       <div class="foot-col">
         <h5>Our Care</h5>
@@ -623,22 +633,13 @@
         <a href="#assurance">Trust &amp; Insurance</a>
         <a href="#consult">Arrange a Consultation</a>
       </div>
-      <div class="foot-col journal">
-        <h5>The CleanKeeps Journal</h5>
-        <p>Occasional, considered notes on caring for fine homes through the seasons. No noise — simply a quiet letter, now and then.</p>
-        <div class="journal-form">
-          <input type="email" placeholder="Your email address">
-          <button onclick="return false;">Subscribe</button>
-        </div>
-      </div>
     </div>
     <div class="foot-bottom">
       <div class="foot-tag">Private home care for fine homes in Bath.</div>
       <div class="foot-legal">
         &copy; 2026 CleanKeeps &nbsp;·&nbsp;
         <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp;
-        <a href="cookie-notice.html">Cookie Notice</a> &nbsp;·&nbsp;
-        <a href="#">Care Plan Terms</a>
+        <a href="cookie-notice.html">Cookie Notice</a>
       </div>
     </div>
   </div>
