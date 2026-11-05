@@ -35,662 +35,435 @@
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300..600&family=Inter+Tight:wght@300..500&family=Inter:wght@300..600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ivory:#FAF6EE;
-    --ivory-2:#F5EFE3;
-    --stone:#EBE3D5;
-    --taupe:#A89A85;
-    --taupe-soft:#C4B9A7;
-    --charcoal:#262220;
-    --charcoal-soft:#4A443D;
-    --brass:#A98A4E;
-    --brass-light:#C2A468;
-    --sage:#7C8770;
-    --sage-deep:#5E6855;
-    --line:rgba(38,34,32,0.12);
-    --serif:"Cormorant Garamond", Georgia, serif;
-    --sans:"Inter", -apple-system, system-ui, sans-serif;
+    --taupe-950:#46433d; --taupe-900:#55524b; --taupe-800:#64605a; --taupe-700:#736f66; --taupe-500:#8b867b;
+    --cream-50:#f6f2ea; --cream-100:#efe9dd; --cream-on-dark:#f4efe3;
+    --stone-100:#e7e3d6; --sage-300:#bdbba8; --forest-800:#3e463d;
+    --ink:#34332e; --ink-muted:#66635b;
+    --hairline-dark:rgb(244 239 227 / .16); --hairline-light:rgb(52 51 46 / .16);
+    --font-display:'Inter Tight',system-ui,sans-serif;
+    --font-body:'Inter',system-ui,sans-serif;
+    --font-brand:'DM Sans',system-ui,sans-serif;
+    --gutter:clamp(1rem,5vw,4.5rem); --measure:46rem; --content-max:76rem; --radius:4px;
   }
+  *,*::before,*::after{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+  body{margin:0;font-family:var(--font-body);font-size:1.0625rem;line-height:1.6;color:var(--ink);background:var(--cream-50);overflow-x:hidden;}
+  h1,h2,h3,h4,p,blockquote{margin:0;}
+  a{color:inherit;}
+  :focus-visible{outline:2px solid currentColor;outline-offset:3px;}
 
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    font-family:var(--sans);
-    color:var(--charcoal);
-    background:var(--ivory);
-    font-weight:300;
-    line-height:1.7;
-    font-size:17px;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  ::selection{background:var(--brass);color:var(--ivory);}
-
-  h1,h2,h3,h4{font-family:var(--serif);font-weight:400;line-height:1.1;letter-spacing:0.005em;}
-
-  .eyebrow{
-    font-family:var(--sans);
-    font-size:0.72rem;
-    font-weight:500;
-    letter-spacing:0.28em;
-    text-transform:uppercase;
-    color:var(--brass);
-  }
-
-  a{color:inherit;text-decoration:none;}
-  img{display:block;max-width:100%;}
-
-  .wrap{max-width:1240px;margin:0 auto;padding:0 40px;}
-  .wrap-narrow{max-width:900px;margin:0 auto;padding:0 40px;}
-
-  /* ---------- Buttons ---------- */
-  .btn{
-    display:inline-block;
-    font-family:var(--sans);
-    font-size:0.78rem;
-    font-weight:500;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    padding:18px 38px;
-    border:1px solid var(--brass);
-    color:var(--charcoal);
-    background:transparent;
-    cursor:pointer;
-    transition:all .55s cubic-bezier(.2,.7,.3,1);
-    position:relative;
-  }
-  .btn:hover{background:var(--brass);color:var(--ivory);border-color:var(--brass);}
-  .btn-solid{background:var(--charcoal);color:var(--ivory);border-color:var(--charcoal);}
-  .btn-solid:hover{background:var(--brass);border-color:var(--brass);color:var(--ivory);}
-  .btn-light{border-color:rgba(250,246,238,0.55);color:var(--ivory);}
-  .btn-light:hover{background:var(--ivory);color:var(--charcoal);border-color:var(--ivory);}
-
-  /* ---------- Header ---------- */
-  header{
-    position:fixed;top:0;left:0;width:100%;z-index:100;
-    padding:26px 0;
-    transition:all .5s ease;
-  }
-  header.scrolled{
-    background:rgba(250,246,238,0.93);
-    backdrop-filter:blur(12px);
-    padding:16px 0;
-    border-bottom:1px solid var(--line);
-  }
-  .nav{display:flex;align-items:center;justify-content:space-between;}
-  .logo{
-    font-family:var(--serif);
-    font-size:1.7rem;
-    letter-spacing:0.04em;
-    color:var(--ivory);
-    transition:color .5s ease;
-  }
-  .logo .dot{color:var(--brass-light);}
-  header.scrolled .logo{color:var(--charcoal);}
-  .nav-links{display:flex;align-items:center;gap:40px;}
-  .nav-links a{
-    font-size:0.74rem;letter-spacing:0.16em;text-transform:uppercase;
-    color:var(--ivory);font-weight:400;transition:color .5s ease;
-  }
-  header.scrolled .nav-links a{color:var(--charcoal-soft);}
-  .nav-links a.navcta{
-    border:1px solid rgba(250,246,238,0.5);padding:11px 24px;transition:all .4s ease;
-  }
-  header.scrolled .nav-links a.navcta{border-color:var(--brass);color:var(--charcoal);}
-  .nav-links a.navcta:hover{background:var(--brass);border-color:var(--brass);color:var(--ivory);}
-  .nav-links a:not(.navcta):hover{color:var(--brass-light);}
-  header.scrolled .nav-links a:not(.navcta):hover{color:var(--brass);}
-  .menu-toggle{display:none;}
+  .eyebrow{font-size:.8125rem;font-weight:500;letter-spacing:.3em;text-transform:uppercase;margin-bottom:2.25rem;}
+  .section-title{font-family:var(--font-display);font-size:clamp(2.25rem,4.4vw,4rem);font-weight:360;line-height:1.12;letter-spacing:-.04em;}
+  .lede{max-width:28rem;margin-top:2.5rem;font-size:1.125rem;line-height:1.75;color:var(--ink-muted);}
+  .inner{max-width:var(--content-max);margin-inline:auto;}
+  .button{display:inline-block;padding:1.6rem 2.75rem;border:0;border-radius:var(--radius);background:var(--cream-50);color:var(--ink);font:500 1rem var(--font-body);letter-spacing:.2em;text-decoration:none;text-transform:uppercase;cursor:pointer;transition:background-color .2s,transform .2s;}
+  .button:hover{background:#fff;transform:translateY(-1px);}
+  .text-link{display:inline-flex;align-items:center;gap:2.25rem;padding-bottom:.6rem;border-bottom:1px solid currentColor;font-size:.875rem;font-weight:500;letter-spacing:.18em;text-decoration:none;text-transform:uppercase;}
+  .text-link svg{transition:transform .2s;}
+  .text-link:hover svg{transform:translate(2px,-2px);}
+  .num{font-size:.8125rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-muted);}
 
   /* ---------- Hero ---------- */
-  .hero{
-    position:relative;min-height:100vh;display:flex;align-items:center;
-    background:linear-gradient(120deg,#3a3530,#221e1b);
-    background-image:linear-gradient(rgba(28,24,21,0.42),rgba(28,24,21,0.55)),url('https://images.unsplash.com/photo-1767976755167-3abfb98fdeb9?q=80&w=2000&auto=format&fit=crop');
-    background-size:cover;background-position:center;
-  }
-  .hero-content{max-width:760px;color:var(--ivory);}
-  .hero .eyebrow{color:var(--brass-light);margin-bottom:30px;display:block;}
-  .hero h1{
-    font-size:clamp(2.6rem,5.6vw,5.1rem);
-    line-height:1.04;color:var(--ivory);margin-bottom:32px;font-weight:400;
-  }
-  .hero p.lede{
-    font-size:1.18rem;font-weight:300;line-height:1.75;
-    color:rgba(250,246,238,0.88);max-width:560px;margin-bottom:42px;
-  }
-  .hero-actions{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
-  .trust-line{
-    margin-top:30px;font-size:0.86rem;letter-spacing:0.02em;
-    color:rgba(250,246,238,0.72);display:flex;align-items:center;gap:12px;
-  }
-  .trust-line svg{flex-shrink:0;}
-  .scroll-cue{
-    position:absolute;bottom:38px;left:50%;transform:translateX(-50%);
-    color:rgba(250,246,238,0.6);font-size:0.66rem;letter-spacing:0.24em;
-    text-transform:uppercase;display:flex;flex-direction:column;align-items:center;gap:14px;
-  }
-  .scroll-cue .ln{width:1px;height:46px;background:rgba(250,246,238,0.4);animation:drip 2.4s ease-in-out infinite;}
-  @keyframes drip{0%,100%{transform:scaleY(.4);opacity:.4;transform-origin:top;}50%{transform:scaleY(1);opacity:1;transform-origin:top;}}
+  .hero{--rule-x:30%;position:relative;isolation:isolate;display:grid;grid-template-rows:auto 1fr auto;min-height:100svh;overflow:hidden;color:var(--cream-on-dark);
+    background:linear-gradient(180deg,var(--taupe-800) 0%,var(--taupe-800) 70%,var(--taupe-900) 100%);}
+  .hero__light{position:absolute;inset:0;z-index:-1;background:
+    radial-gradient(60% 55% at 55% 8%,rgb(160 154 140 / .55),transparent 70%),
+    radial-gradient(40% 70% at 70% 30%,rgb(140 134 122 / .35),transparent 75%),
+    linear-gradient(90deg,rgb(70 67 61 / .45) 0%,transparent 30%,transparent 75%,rgb(70 67 61 / .25) 100%);}
+  .hero__beam{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgb(190 182 166 / .05) 20%,rgb(190 182 166 / .16) 75%,rgb(190 182 166 / .1));clip-path:polygon(.5% 100%,var(--rule-x) 22%,var(--rule-x) 100%);}
+  .hero__rule{position:absolute;top:0;bottom:0;left:var(--rule-x);z-index:-1;width:1px;background:var(--hairline-dark);}
+  .hero__bar{display:flex;align-items:baseline;justify-content:space-between;gap:2rem;padding:clamp(1.5rem,4vw,3.75rem) var(--gutter) 0;position:relative;}
+  .brand{font-family:var(--font-brand);font-size:clamp(1.75rem,2.6vw,2.5rem);font-weight:500;line-height:1;letter-spacing:-.01em;text-decoration:none;}
+  .nav{display:none;align-items:baseline;gap:clamp(1.5rem,3vw,3rem);font-family:var(--font-brand);font-size:1.125rem;}
+  .nav a{text-decoration:none;white-space:nowrap;opacity:.9;transition:opacity .2s;}
+  .nav a:hover{opacity:1;}
+  .nav__cta{padding:1.1rem 2rem;border:1px solid rgb(244 239 227 / .55);border-radius:var(--radius);transition:background-color .2s,border-color .2s;}
+  .nav__cta:hover{border-color:var(--cream-on-dark);background:rgb(244 239 227 / .08);}
+  .menu{font:400 1rem var(--font-brand);color:inherit;background:none;padding:.7rem 1.1rem;border:1px solid rgb(244 239 227 / .55);border-radius:var(--radius);cursor:pointer;}
+  .menu-panel{display:none;position:absolute;top:calc(100% + 1rem);left:var(--gutter);right:var(--gutter);z-index:5;padding:1.5rem;background:var(--cream-50);color:var(--ink);border-radius:var(--radius);box-shadow:0 24px 48px -12px rgb(40 38 33 / .35);font-family:var(--font-brand);font-size:1.25rem;}
+  .menu-panel.open{display:grid;gap:1rem;}
+  .menu-panel a{text-decoration:none;}
+  @media(min-width:1200px){.nav{display:flex;}.menu,.menu-panel{display:none !important;}}
+  .hero__content{display:grid;justify-items:center;align-content:center;padding:clamp(4rem,10vh,7rem) var(--gutter);text-align:center;}
+  .hero__content .eyebrow{margin-bottom:clamp(2rem,4vh,3.25rem);opacity:.9;}
+  .hero h1{max-width:16ch;font-family:var(--font-display);font-size:clamp(2.375rem,6vw + .5rem,5.75rem);font-weight:340;line-height:1.12;letter-spacing:-.045em;}
+  .hero__strap{max-width:38rem;margin-top:clamp(2rem,4vh,3rem);font-size:clamp(1.0625rem,1.4vw,1.3rem);line-height:1.8;opacity:.92;}
+  .hero .button{margin-top:clamp(2.25rem,5vh,3.5rem);}
+  .hero__foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem;padding:clamp(2.5rem,5vh,3.5rem) var(--gutter) clamp(1.75rem,4vh,3rem);border-top:1px solid rgb(244 239 227 / .06);background:linear-gradient(180deg,rgb(70 67 61 / .05),rgb(70 67 61 / .45));font-family:var(--font-brand);font-size:1.0625rem;opacity:.95;}
+  @media(max-width:899px){.hero{--rule-x:var(--gutter);}.hero__rule{display:none;}.hero__foot span:first-child{display:none;}}
 
-  /* ---------- Section base ---------- */
-  section{padding:130px 0;}
-  .section-label{display:block;margin-bottom:22px;}
-  .lead-serif{font-size:clamp(1.9rem,3.4vw,2.9rem);line-height:1.18;color:var(--charcoal);}
+  /* ---------- Intro (centred) ---------- */
+  .intro{display:grid;justify-items:center;padding:clamp(5rem,12vw,10rem) var(--gutter);text-align:center;}
+  .intro h2{font-family:var(--font-display);font-size:clamp(2.125rem,4.8vw,4.25rem);font-weight:360;line-height:1.2;letter-spacing:-.04em;}
+  .intro__body{max-width:var(--measure);margin-top:clamp(2rem,4vw,3.25rem);font-size:clamp(1.0625rem,1.4vw,1.25rem);line-height:1.8;color:var(--ink-muted);}
+  .intro__body p+p{margin-top:1.5rem;}
+  .intro__sig{margin-top:clamp(2rem,4vw,3rem);font-family:var(--font-brand);font-size:1.5rem;color:var(--ink);}
 
-  /* ---------- Introduction ---------- */
-  .intro{background:var(--ivory);}
-  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;}
-  .intro-grid h2{font-size:clamp(2.1rem,3.6vw,3.1rem);margin-bottom:0;}
-  .intro-text p{margin-bottom:24px;color:var(--charcoal-soft);}
-  .intro-text p:last-child{margin-bottom:0;}
-  .intro-sig{margin-top:38px;font-family:var(--serif);font-style:italic;font-size:1.4rem;color:var(--brass);}
+  /* ---------- Numbered three-up (trust) ---------- */
+  .band{padding:clamp(5rem,10vw,8rem) var(--gutter);}
+  .band--stone{background:var(--stone-100);}
+  .split-head{display:grid;gap:2rem;}
+  .split-head .lede{margin-top:0;align-self:end;}
+  @media(min-width:900px){.split-head{grid-template-columns:1fr 1fr;gap:6rem;}}
+  .cols{display:grid;gap:2.5rem;margin:clamp(3.5rem,7vw,5rem) 0 0;padding:0;list-style:none;}
+  .cols li{padding-top:2.25rem;border-top:1px solid var(--hairline-light);}
+  .cols h3{margin-top:1rem;font-family:var(--font-brand);font-size:1.5rem;font-weight:400;line-height:1.3;}
+  .cols p{margin-top:1rem;line-height:1.8;color:var(--ink-muted);}
+  @media(min-width:720px){.cols--3{grid-template-columns:repeat(3,1fr);gap:3rem;}.cols--4{grid-template-columns:repeat(2,1fr);gap:3rem;}}
+  @media(min-width:1000px){.cols--4{grid-template-columns:repeat(4,1fr);}}
 
-  /* ---------- Trust cards ---------- */
-  .trust{background:var(--ivory-2);}
-  .sec-head{text-align:center;max-width:640px;margin:0 auto 80px;}
-  .sec-head h2{font-size:clamp(2.1rem,3.8vw,3.2rem);margin-bottom:20px;}
-  .sec-head p{color:var(--charcoal-soft);font-size:1.05rem;}
-  .cards-3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
-  .tcard{padding:60px 44px;text-align:center;border-right:1px solid var(--line);transition:background .5s ease;}
-  .tcard:last-child{border-right:none;}
-  .tcard:hover{background:var(--ivory);}
-  .tcard .ic{margin:0 auto 30px;width:48px;height:48px;color:var(--brass);}
-  .tcard h3{font-size:1.6rem;margin-bottom:16px;}
-  .tcard p{color:var(--charcoal-soft);font-size:0.97rem;}
+  /* ---------- Care (accordion with sticky intro) ---------- */
+  .care__inner{display:grid;gap:3.5rem;}
+  .care__list{border-top:1px solid var(--hairline-light);}
+  details{border-bottom:1px solid var(--hairline-light);}
+  summary{display:grid;grid-template-columns:2.75rem 1fr 1.5rem;align-items:baseline;padding:2.25rem 0;cursor:pointer;list-style:none;}
+  summary::-webkit-details-marker{display:none;}
+  .acc__num{font-size:.875rem;letter-spacing:.1em;color:var(--ink-muted);}
+  .acc__title{font-family:var(--font-brand);font-size:clamp(1.375rem,2vw,1.75rem);line-height:1.3;}
+  .acc__icon{position:relative;align-self:center;width:1rem;height:1rem;transition:transform .25s;}
+  .acc__icon::before,.acc__icon::after{content:'';position:absolute;inset:50% 0 auto;height:1.5px;background:currentColor;}
+  .acc__icon::after{transform:rotate(90deg);}
+  details[open] .acc__icon{transform:rotate(45deg);}
+  .acc__body{display:grid;gap:1.75rem;margin:-.75rem 0 0 2.75rem;padding-bottom:2.25rem;}
+  .acc__body p{max-width:30rem;line-height:1.95;color:var(--ink-muted);}
+  .acc__photo{aspect-ratio:16/9;max-width:30rem;border-radius:var(--radius);background:var(--stone-100) center/cover no-repeat;}
+  .acc__body .text-link{justify-self:start;}
+  @media(min-width:900px){.care__inner{grid-template-columns:1fr 1.15fr;gap:6rem;align-items:start;}.care__intro{position:sticky;top:4rem;padding-top:.5rem;}}
 
-  /* ---------- Our Care ---------- */
-  .care{background:var(--ivory);}
-  .care-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;}
-  .ccard{
-    background:var(--ivory-2);border:1px solid var(--line);
-    overflow:hidden;display:flex;flex-direction:column;transition:transform .6s cubic-bezier(.2,.7,.3,1),box-shadow .6s ease;
-  }
-  .ccard:hover{transform:translateY(-8px);box-shadow:0 30px 60px -30px rgba(38,34,32,0.28);}
-  .ccard .photo{height:260px;background-size:cover;background-position:center;background-color:var(--stone);}
-  .c1 .photo{background-image:linear-gradient(rgba(60,55,48,0.05),rgba(60,55,48,0.12)),url('https://images.unsplash.com/photo-1698746044370-4ea50c59c009?q=80&w=1400&auto=format&fit=crop');}
-  .c2 .photo{background-image:linear-gradient(rgba(60,55,48,0.05),rgba(60,55,48,0.12)),url('https://images.unsplash.com/photo-1587316830126-132eec62d06e?q=80&w=1400&auto=format&fit=crop');}
-  .c3 .photo{background-image:linear-gradient(rgba(60,55,48,0.05),rgba(60,55,48,0.12)),url('https://images.unsplash.com/photo-1659559108995-a41c413392d6?q=80&w=1400&auto=format&fit=crop');}
-  .ccard .body{padding:40px 36px 44px;flex:1;display:flex;flex-direction:column;}
-  .ccard .num{font-family:var(--serif);font-size:0.95rem;font-style:italic;color:var(--brass);margin-bottom:14px;}
-  .ccard h3{font-size:1.75rem;margin-bottom:16px;}
-  .ccard p{color:var(--charcoal-soft);font-size:0.97rem;margin-bottom:26px;flex:1;}
-  .ccard .more{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--charcoal);border-bottom:1px solid var(--brass);padding-bottom:6px;align-self:flex-start;transition:color .4s ease;}
-  .ccard:hover .more{color:var(--brass);}
+  /* ---------- Philosophy (dark, centred) ---------- */
+  .dark{position:relative;isolation:isolate;overflow:hidden;padding:clamp(5rem,12vw,9rem) var(--gutter);background:var(--taupe-900);color:var(--cream-on-dark);text-align:center;}
+  .dark::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(55% 60% at 50% 0%,rgb(160 154 140 / .35),transparent 70%);}
+  .dark .section-title{max-width:20ch;margin-inline:auto;font-size:clamp(2.25rem,4.4vw,3.75rem);}
+  .dark__body{max-width:40rem;margin:2.75rem auto 0;font-size:1.125rem;line-height:1.8;opacity:.88;}
+  .dark__body p+p{margin-top:1.5rem;}
 
-  /* ---------- Pricing philosophy ---------- */
-  .philosophy{
-    background:linear-gradient(150deg,#2c2824,#201d1a);
-    color:var(--ivory);position:relative;overflow:hidden;
-  }
-  .philosophy::before{
-    content:"";position:absolute;inset:0;
-    background-image:url('https://images.unsplash.com/photo-1689263131930-c938ae8bf1ec?q=80&w=2000&auto=format&fit=crop');
-    background-size:cover;background-position:center;opacity:0.1;
-  }
-  .philosophy .wrap-narrow{position:relative;text-align:center;}
-  .philosophy .eyebrow{color:var(--brass-light);}
-  .philosophy h2{font-size:clamp(2.2rem,4.4vw,3.6rem);color:var(--ivory);margin:24px auto 34px;max-width:720px;}
-  .philosophy p{color:rgba(250,246,238,0.82);font-size:1.12rem;max-width:620px;margin:0 auto 24px;font-weight:300;}
-  .philosophy .rule{width:60px;height:1px;background:var(--brass);margin:46px auto 0;}
-
-  /* ---------- Process ---------- */
-  .process{background:var(--ivory-2);}
-  .steps{display:grid;grid-template-columns:repeat(6,1fr);gap:0;margin-top:40px;}
-  .step{padding:0 22px;position:relative;}
-  .step::before{content:"";position:absolute;top:11px;left:0;right:0;height:1px;background:var(--line);}
-  .step:first-child::before{left:50%;}
-  .step:last-child::before{right:50%;}
-  .step .dot{width:11px;height:11px;border-radius:50%;background:var(--brass);position:relative;margin:0 auto 30px;z-index:2;border:3px solid var(--ivory-2);}
-  .step .sn{font-family:var(--serif);font-style:italic;font-size:0.9rem;color:var(--brass);margin-bottom:8px;text-align:center;}
-  .step h4{font-size:1.32rem;margin-bottom:10px;text-align:center;}
-  .step p{font-size:0.85rem;color:var(--charcoal-soft);text-align:center;}
+  /* ---------- Process (numbered steps) ---------- */
+  .steps{display:grid;gap:2.5rem 3rem;margin:clamp(3.5rem,7vw,5rem) 0 0;padding:0;list-style:none;counter-reset:s;}
+  .steps li{padding-top:2.25rem;border-top:1px solid var(--hairline-light);}
+  .steps h3{margin-top:1rem;font-family:var(--font-brand);font-size:1.5rem;font-weight:400;}
+  .steps p{margin-top:.85rem;line-height:1.8;color:var(--ink-muted);}
+  @media(min-width:720px){.steps{grid-template-columns:repeat(2,1fr);}}
+  @media(min-width:1000px){.steps{grid-template-columns:repeat(3,1fr);}}
 
   /* ---------- Testimonials ---------- */
-  .testi{background:var(--ivory);}
-  .quote-mark{font-family:var(--serif);font-size:6rem;line-height:0.5;color:var(--brass);opacity:0.4;text-align:center;display:block;margin-bottom:30px;}
-  .big-quote{text-align:center;max-width:880px;margin:0 auto;}
-  .big-quote blockquote{font-family:var(--serif);font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.34;color:var(--charcoal);font-weight:400;margin-bottom:36px;font-style:italic;}
-  .big-quote cite{font-style:normal;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--taupe);}
-  .testi-row{display:grid;grid-template-columns:repeat(2,1fr);gap:50px;margin-top:100px;padding-top:70px;border-top:1px solid var(--line);}
-  .mini-quote blockquote{font-family:var(--serif);font-size:1.35rem;line-height:1.5;font-style:italic;color:var(--charcoal-soft);margin-bottom:20px;}
-  .mini-quote cite{font-style:normal;font-size:0.74rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--taupe);}
-  .testi-source{text-align:center;margin-top:70px;font-size:0.78rem;letter-spacing:0.18em;text-transform:uppercase;}
-  .testi-source a{color:var(--taupe);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:4px;transition:color .3s;}
-  .testi-source a:hover{color:var(--charcoal);}
+  .quote{max-width:58rem;margin-inline:auto;text-align:center;}
+  .quote blockquote{font-family:var(--font-display);font-size:clamp(1.75rem,3.4vw,3rem);font-weight:340;line-height:1.3;letter-spacing:-.035em;}
+  .quote cite,.mini cite{display:block;margin-top:2.25rem;font-style:normal;font-size:.8125rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-muted);}
+  .minis{display:grid;gap:3rem;max-width:var(--content-max);margin:clamp(4rem,8vw,6rem) auto 0;}
+  .mini{padding-top:2.25rem;border-top:1px solid var(--hairline-light);}
+  .mini blockquote{font-family:var(--font-brand);font-size:1.375rem;line-height:1.55;}
+  .mini cite{margin-top:1.5rem;}
+  .source{margin-top:clamp(3rem,6vw,4.5rem);text-align:center;}
+  @media(min-width:900px){.minis{grid-template-columns:1fr 1fr;gap:4rem;}}
 
-  /* ---------- About ---------- */
-  .about{background:var(--ivory-2);}
-  .about-grid{display:grid;grid-template-columns:0.95fr 1.05fr;gap:80px;align-items:center;}
-  .about-photo{
-    height:560px;background-size:cover;background-position:center;background-color:var(--stone);
-    background-image:linear-gradient(rgba(60,55,48,0.04),rgba(60,55,48,0.1)),url('https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?q=80&w=1400&auto=format&fit=crop');
-    position:relative;
-  }
-  .about-photo::after{content:"";position:absolute;inset:14px;border:1px solid rgba(250,246,238,0.4);pointer-events:none;}
-  .about-text h2{font-size:clamp(2rem,3.6vw,3rem);margin-bottom:26px;}
-  .about-text p{color:var(--charcoal-soft);margin-bottom:22px;}
-  .founder-names{font-family:var(--serif);font-style:italic;font-size:1.5rem;color:var(--brass);margin-top:8px;}
-  .founder-role{font-size:0.74rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--taupe);margin-top:6px;}
+  /* ---------- About (split photo) ---------- */
+  .who{display:grid;background:var(--stone-100);}
+  .who__photo{min-height:22rem;background:var(--taupe-500) url('https://images.unsplash.com/photo-1528740561666-dc2479dc08ab?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;}
+  .who__panel{padding:clamp(3.5rem,8vw,6.5rem) var(--gutter);}
+  .who__panel .section-title{font-size:clamp(2.5rem,4.4vw,4rem);}
+  .who__panel .lede+.lede{margin-top:1.5rem;}
+  .who__sig{max-width:28rem;margin-top:2.5rem;padding-top:2rem;border-top:1px solid var(--hairline-light);display:flex;align-items:baseline;flex-wrap:wrap;gap:.5rem 1rem;}
+  .who__sig strong{font-family:var(--font-brand);font-size:1.75rem;font-weight:400;}
+  @media(min-width:900px){.who{grid-template-columns:1fr 1fr;min-height:54rem;}.who__panel{align-self:center;padding-inline:clamp(3rem,6vw,6rem);}}
 
-  /* ---------- Trust & insurance ---------- */
-  .assurance{background:var(--ivory);}
-  .assure-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:50px;margin-top:30px;}
-  .acol{text-align:center;}
-  .acol .ic{margin:0 auto 22px;width:42px;height:42px;color:var(--brass);}
-  .acol h4{font-size:1.3rem;margin-bottom:10px;}
-  .acol p{font-size:0.9rem;color:var(--charcoal-soft);}
-
-  /* ---------- Consultation CTA ---------- */
-  .consult{
-    background:linear-gradient(160deg,#5e6855,#4a523f);color:var(--ivory);position:relative;overflow:hidden;
-  }
-  .consult::before{
-    content:"";position:absolute;inset:0;
-    background-image:url('https://images.unsplash.com/photo-1559871753-75a00941f6b2?q=80&w=2000&auto=format&fit=crop');
-    background-size:cover;background-position:center;opacity:0.12;mix-blend-mode:luminosity;
-  }
-  .consult-grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;}
-  .consult .eyebrow{color:var(--brass-light);}
-  .consult h2{font-size:clamp(2.1rem,4vw,3.2rem);color:var(--ivory);margin:22px 0 24px;}
-  .consult p{color:rgba(250,246,238,0.86);font-size:1.05rem;margin-bottom:8px;font-weight:300;}
-  .consult-direct{margin-top:40px;padding-top:30px;border-top:1px solid rgba(250,246,238,0.18);}
-  .consult-direct span{display:block;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--brass-light);margin-bottom:14px;}
-  .consult-direct a{display:block;font-family:var(--serif);font-size:1.45rem;color:var(--ivory);margin-bottom:6px;transition:color .4s ease;}
-  .consult-direct a:hover{color:var(--brass-light);}
-  .cform{background:rgba(250,246,238,0.07);border:1px solid rgba(250,246,238,0.18);padding:46px 44px;backdrop-filter:blur(4px);}
-  .cform .field{margin-bottom:26px;}
-  .cform label{display:block;font-size:0.68rem;letter-spacing:0.16em;text-transform:uppercase;color:rgba(250,246,238,0.7);margin-bottom:10px;}
-  .cform input,.cform textarea{
-    width:100%;background:transparent;border:none;border-bottom:1px solid rgba(250,246,238,0.3);
-    color:var(--ivory);font-family:var(--sans);font-size:1rem;font-weight:300;padding:8px 0;transition:border-color .4s ease;
-  }
-  .cform input:focus,.cform textarea:focus{outline:none;border-color:var(--brass-light);}
-  .cform input::placeholder,.cform textarea::placeholder{color:rgba(250,246,238,0.4);}
-  .cform .btn{width:100%;margin-top:10px;text-align:center;}
-  .cform .note{font-size:0.78rem;color:rgba(250,246,238,0.6);margin-top:18px;text-align:center;letter-spacing:0.02em;}
+  /* ---------- Consultation (forest) ---------- */
+  .consult{padding:clamp(5rem,10vw,8rem) var(--gutter);background:var(--forest-800);color:var(--cream-on-dark);text-align:center;}
+  .consult__inner{max-width:60rem;margin-inline:auto;}
+  .consult .section-title{font-size:clamp(2.5rem,5vw,4.5rem);}
+  .consult__lede{max-width:40rem;margin:2.5rem auto 2.75rem;font-size:1.125rem;line-height:1.75;opacity:.9;}
+  .consult__lede p+p{margin-top:1rem;}
+  .direct{display:grid;gap:2.5rem;margin-top:clamp(3.5rem,7vw,4.5rem);padding-top:clamp(2.5rem,5vw,3rem);border-top:1px solid var(--hairline-dark);text-align:left;}
+  .direct .num{color:inherit;opacity:.85;}
+  .direct a{display:block;margin-top:1rem;font-family:var(--font-brand);font-size:1.5rem;text-decoration:none;}
+  .direct a:hover{text-decoration:underline;}
+  @media(min-width:720px){.direct{grid-template-columns:1fr 1fr;gap:4rem;}}
+  .form{max-width:44rem;margin:clamp(3.5rem,7vw,4.5rem) auto 0;padding-top:clamp(2.5rem,5vw,3rem);border-top:1px solid var(--hairline-dark);text-align:left;}
+  .form h3{font-family:var(--font-brand);font-size:1.5rem;font-weight:400;}
+  .form > p{margin:.75rem 0 2rem;line-height:1.8;opacity:.85;}
+  .fields{display:grid;gap:1.5rem;}
+  @media(min-width:720px){.fields{grid-template-columns:1fr 1fr;}.field--wide{grid-column:1/-1;}}
+  .field label{display:block;margin-bottom:.6rem;font-size:.8125rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;opacity:.85;}
+  .field label span{text-transform:none;letter-spacing:0;opacity:.7;font-weight:400;}
+  .field input,.field textarea{width:100%;padding:1rem 1.1rem;border:1px solid var(--hairline-dark);border-radius:var(--radius);background:rgb(244 239 227 / .06);color:var(--cream-on-dark);font:inherit;font-size:1rem;}
+  .field input::placeholder,.field textarea::placeholder{color:rgb(244 239 227 / .45);}
+  .field input:focus,.field textarea:focus{outline:none;border-color:rgb(244 239 227 / .6);}
+  .form .button{margin-top:2rem;}
+  .form .note{margin-top:1.25rem;font-size:.9375rem;opacity:.75;}
 
   /* ---------- Footer ---------- */
-  footer{background:var(--charcoal);color:rgba(250,246,238,0.7);padding:90px 0 40px;}
-  .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:50px;padding-bottom:60px;border-bottom:1px solid rgba(250,246,238,0.12);}
-  .foot-logo{font-family:var(--serif);font-size:1.9rem;color:var(--ivory);margin-bottom:18px;}
-  .foot-logo .dot{color:var(--brass-light);}
-  .foot-brand p{font-size:0.95rem;max-width:280px;line-height:1.7;}
-  .foot-brand .foot-contact{margin-top:20px;}
-  .foot-contact a{color:var(--ivory);transition:color .4s ease;}
-  .foot-contact a:hover{color:var(--brass-light);}
-  .foot-col h5{font-family:var(--sans);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--brass-light);margin-bottom:22px;font-weight:500;}
-  .foot-col a{display:block;font-size:0.92rem;margin-bottom:13px;color:rgba(250,246,238,0.7);transition:color .4s ease;}
-  .foot-col a:hover{color:var(--ivory);}
-  .foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:30px;flex-wrap:wrap;gap:16px;}
-  .foot-tag{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--ivory);}
-  .foot-legal{font-size:0.78rem;color:rgba(250,246,238,0.45);}
-  .foot-legal a{color:rgba(250,246,238,0.45);}
-  .foot-legal a:hover{color:var(--ivory);}
-
-  /* ---------- Reveal animation ---------- */
-  .reveal{opacity:0;transform:translateY(28px);transition:opacity 1s cubic-bezier(.2,.7,.3,1),transform 1s cubic-bezier(.2,.7,.3,1);}
-  .reveal.in{opacity:1;transform:none;}
-
-  /* ---------- Responsive ---------- */
-  @media(max-width:980px){
-    .intro-grid,.about-grid,.consult-grid{grid-template-columns:1fr;gap:48px;}
-    .cards-3{grid-template-columns:1fr;}
-    .tcard{border-right:none;border-bottom:1px solid var(--line);}
-    .tcard:last-child{border-bottom:none;}
-    .care-grid{grid-template-columns:1fr;max-width:480px;margin:0 auto;}
-    .assure-grid{grid-template-columns:repeat(2,1fr);gap:50px 30px;}
-    .testi-row{grid-template-columns:1fr;gap:40px;}
-    .about-photo{height:420px;}
-    .foot-grid{grid-template-columns:1fr 1fr;gap:40px;}
-    .steps{grid-template-columns:1fr;gap:34px;}
-    .step{padding:0 0 0 26px;}
-    .step::before{top:0;bottom:0;left:5px;right:auto;width:1px;height:auto;}
-    .step:first-child::before{top:5px;}
-    .step:last-child::before{bottom:auto;height:24px;}
-    .step .dot{margin:0 0 12px;}
-    .step .sn,.step h4,.step p{text-align:left;}
-  }
-  @media(max-width:680px){
-    body{font-size:16px;}
-    .wrap,.wrap-narrow{padding:0 24px;}
-    section{padding:90px 0;}
-    .nav-links{display:none;}
-    .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--ivory);padding:30px 24px;gap:22px;border-bottom:1px solid var(--line);}
-    .nav-links.open a{color:var(--charcoal);}
-    .menu-toggle{display:block;background:none;border:none;cursor:pointer;width:28px;height:18px;position:relative;}
-    .menu-toggle span{display:block;height:1.5px;background:var(--ivory);width:100%;position:absolute;left:0;transition:all .4s ease;}
-    header.scrolled .menu-toggle span{background:var(--charcoal);}
-    .menu-toggle span:nth-child(1){top:0;}
-    .menu-toggle span:nth-child(2){top:8px;}
-    .menu-toggle span:nth-child(3){top:16px;}
-    .foot-grid{grid-template-columns:1fr;}
-    .assure-grid{grid-template-columns:1fr;gap:44px;}
-    .hero-actions{flex-direction:column;align-items:flex-start;gap:20px;}
-    .intro-grid{gap:30px;}
-  }
+  .footer{padding:clamp(3rem,6vw,4.5rem) var(--gutter);font-family:var(--font-brand);font-size:.9375rem;line-height:1.75;color:var(--ink-muted);}
+  .footer__grid{display:grid;gap:2.5rem;max-width:var(--content-max);margin-inline:auto;}
+  .footer__brand{display:inline-block;margin-bottom:1rem;font-size:clamp(1.75rem,2.6vw,2.5rem);font-weight:500;line-height:1;letter-spacing:-.01em;color:var(--ink);text-decoration:none;}
+  .footer h4{margin-bottom:.75rem;font-family:var(--font-body);font-size:.75rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--ink);}
+  .footer a:not(.footer__brand){display:block;text-decoration:none;}
+  .footer a:not(.footer__brand):hover{text-decoration:underline;}
+  .footer__base{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem 2rem;max-width:var(--content-max);margin:3rem auto 0;padding-top:2rem;border-top:1px solid var(--hairline-light);}
+  .footer__base a{display:inline !important;}
+  @media(min-width:900px){.footer__grid{grid-template-columns:1.4fr 1fr 1fr;gap:4rem;}}
 </style>
 </head>
 <body>
 
-<!-- ============ HEADER ============ -->
-<header id="header">
-  <div class="wrap nav">
-    <a href="#" class="logo">CleanKeeps<span class="dot">.</span></a>
-    <nav class="nav-links" id="navlinks">
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="hero__light" aria-hidden="true"></div>
+  <div class="hero__beam" aria-hidden="true"></div>
+  <div class="hero__rule" aria-hidden="true"></div>
+
+  <div class="hero__bar">
+    <a class="brand" href="#">CleanKeeps</a>
+    <nav class="nav" aria-label="Main">
       <a href="#care">Our Care</a>
       <a href="#process">Process</a>
       <a href="#about">About</a>
       <a href="#assurance">Trust</a>
-      <a href="#consult" class="navcta">Arrange a Consultation</a>
+      <a class="nav__cta" href="#consult">Arrange a Consultation</a>
     </nav>
-    <button class="menu-toggle" id="menuToggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    <button class="menu" id="menuToggle" aria-expanded="false" aria-controls="menuPanel">Menu</button>
+    <nav class="menu-panel" id="menuPanel" aria-label="Main">
+      <a href="#care">Our Care</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#assurance">Trust</a>
+      <a href="#consult">Arrange a Consultation</a>
+    </nav>
+  </div>
+
+  <div class="hero__content" id="main">
+    <p class="eyebrow">Private Home Care · Bath &amp; Surrounding Countryside</p>
+    <h1>The trusted hands behind a beautifully kept home.</h1>
+    <p class="hero__strap">CleanKeeps provides discreet, dependable home care for fine homes in Bath and the surrounding countryside — so yours is always immaculate, without you ever having to think about it.</p>
+    <a class="button" href="#consult">Arrange a Consultation</a>
+  </div>
+
+  <div class="hero__foot">
+    <span>Kirsten &amp; Warren</span>
+    <span>DBS-checked, insured, and trusted with the keys to homes across Bath.</span>
   </div>
 </header>
 
-<!-- ============ HERO ============ -->
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-content">
-      <span class="eyebrow">Private Home Care · Bath &amp; Surrounding Countryside</span>
-      <h1>The trusted hands behind a beautifully kept home.</h1>
-      <p class="lede">CleanKeeps provides discreet, dependable home care for fine homes in Bath and the surrounding countryside — so yours is always immaculate, without you ever having to think about it.</p>
-      <div class="hero-actions">
-        <a href="#consult" class="btn btn-light">Arrange a Consultation</a>
-      </div>
-      <div class="trust-line">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z"/></svg>
-        DBS-checked, insured, and trusted with the keys to homes across Bath.
-      </div>
-    </div>
-  </div>
-  <div class="scroll-cue"><span>Scroll</span><span class="ln"></span></div>
-</section>
+<main>
 
 <!-- ============ INTRODUCTION ============ -->
 <section class="intro" id="intro">
-  <div class="wrap">
-    <div class="intro-grid reveal">
-      <div><span class="eyebrow section-label">A quieter way to keep a home</span>
-        <h2>Home care, looked after for you</h2>
-      </div>
-      <div class="intro-text">
-        <p>For the homes we look after, cleanliness is simply the beginning. A fine home asks for attentiveness — a sense of how each room should feel, a memory for the small things, and the discretion to move through a household as though you were never there at all.</p>
-        <p>CleanKeeps was founded on a single conviction: that the best home care is personal. We care for a deliberately small number of homes, returning week after week, season after season, until the rhythm of your home becomes second nature to us.</p>
-        <p class="intro-sig">So you never need to think about it.</p>
-      </div>
-    </div>
+  <p class="eyebrow">A quieter way to keep a home</p>
+  <h2>Home care, looked after for you</h2>
+  <div class="intro__body">
+    <p>For the homes we look after, cleanliness is simply the beginning. A fine home asks for attentiveness — a sense of how each room should feel, a memory for the small things, and the discretion to move through a household as though you were never there at all.</p>
+    <p>CleanKeeps was founded on a single conviction: that the best home care is personal. We care for a deliberately small number of homes, returning week after week, season after season, until the rhythm of your home becomes second nature to us.</p>
   </div>
+  <p class="intro__sig">So you never need to think about it.</p>
 </section>
 
 <!-- ============ WHY FAMILIES TRUST US ============ -->
-<section class="trust" id="trust">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow section-label">Why families trust us</span>
-      <h2>The same hands, every time</h2>
-      <p>Trust is not built in a single visit. It is earned quietly, over time, by the same dependable presence in your home.</p>
+<section class="band band--stone" id="trust">
+  <div class="inner">
+    <div class="split-head">
+      <div>
+        <p class="eyebrow">Why families trust us</p>
+        <h2 class="section-title">The same hands,<br>every time.</h2>
+      </div>
+      <p class="lede">Trust is not built in a single visit. It is earned quietly, over time, by the same dependable presence in your home.</p>
     </div>
-    <div class="cards-3 reveal">
-      <div class="tcard">
-        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1"><circle cx="18" cy="18" r="7"/><circle cx="32" cy="20" r="6"/><path d="M6 40c0-7 5.5-11 12-11s12 4 12 11M28 40c0-5 3-9 8-9s8 3.5 8 8"/></svg></div>
-        <h3>The same trusted pair</h3>
-        <p>Your home is cared for by Kirsten and Warren personally — never a rotating roster of strangers. One familiar pair who learn your home and your preferences by heart.</p>
-      </div>
-      <div class="tcard">
-        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1"><path d="M24 4l16 6v11c0 10-7 17-16 21C15 38 8 31 8 21V10l16-6z"/><path d="M17 23l5 5 9-10"/></svg></div>
-        <h3>DBS-checked and insured</h3>
-        <p>We both hold DBS certificates and carry public liability insurance. The reassurance of a professional standard, delivered with the warmth of a personal one.</p>
-      </div>
-      <div class="tcard">
-        <div class="ic"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1"><path d="M24 8c-9 0-16 8-20 16 4 8 11 16 20 16s16-8 20-16c-4-8-11-16-20-16z"/><circle cx="24" cy="24" r="6"/><path d="M6 6l36 36" stroke-width="1"/></svg></div>
-        <h3>Discreet by nature</h3>
-        <p>We understand that a fine home is a private one. We work quietly and confidentially, respecting your space, your belongings and your routines without exception.</p>
-      </div>
-    </div>
+    <ol class="cols cols--3">
+      <li><p class="num">01</p><h3>The same trusted pair</h3><p>Your home is cared for by Kirsten and Warren personally — never a rotating roster of strangers. One familiar pair who learn your home and your preferences by heart.</p></li>
+      <li><p class="num">02</p><h3>DBS-checked and insured</h3><p>We both hold DBS certificates and carry public liability insurance. The reassurance of a professional standard, delivered with the warmth of a personal one.</p></li>
+      <li><p class="num">03</p><h3>Discreet by nature</h3><p>We understand that a fine home is a private one. We work quietly and confidentially, respecting your space, your belongings and your routines without exception.</p></li>
+    </ol>
   </div>
 </section>
 
 <!-- ============ OUR CARE ============ -->
-<section class="care" id="care">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow section-label">Our care</span>
-      <h2>Considered care, shaped around your home</h2>
-      <p>Rather than packages, we offer ongoing relationships — each one tailored to the life of the home it serves.</p>
+<section class="band" id="care">
+  <div class="inner care__inner">
+    <div class="care__intro">
+      <p class="eyebrow">Our care</p>
+      <h2 class="section-title">Considered care, shaped around your home.</h2>
+      <p class="lede">Rather than packages, we offer ongoing relationships — each one tailored to the life of the home it serves.</p>
     </div>
-    <div class="care-grid">
-      <div class="ccard c1 reveal">
-        <div class="photo"></div>
-        <div class="body">
-          <span class="num">I</span>
-          <h3>Signature Home Care</h3>
+    <div class="care__list">
+      <details name="care" open>
+        <summary><span class="acc__num">01</span><span class="acc__title">Signature Home Care</span><span class="acc__icon" aria-hidden="true"></span></summary>
+        <div class="acc__body">
+          <div class="acc__photo" style="background-image:url('https://images.unsplash.com/photo-1698746044370-4ea50c59c009?q=80&w=1200&auto=format&fit=crop')"></div>
           <p>Regular, attentive care that keeps your home effortlessly immaculate throughout the year — a dependable rhythm you need never give a second thought.</p>
-          <a href="#consult" class="more">Discover</a>
+          <a class="text-link" href="#consult">Discover <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
-      </div>
-      <div class="ccard c2 reveal">
-        <div class="photo"></div>
-        <div class="body">
-          <span class="num">II</span>
-          <h3>Seasonal &amp; Deep Care</h3>
+      </details>
+      <details name="care">
+        <summary><span class="acc__num">02</span><span class="acc__title">Seasonal &amp; Deep Care</span><span class="acc__icon" aria-hidden="true"></span></summary>
+        <div class="acc__body">
+          <div class="acc__photo" style="background-image:url('https://images.unsplash.com/photo-1587316830126-132eec62d06e?q=80&w=1200&auto=format&fit=crop')"></div>
           <p>The thorough, restorative attention a fine home deserves with the turning of the seasons — from spring renewals to readying a home for guests and gatherings.</p>
-          <a href="#consult" class="more">Discover</a>
+          <a class="text-link" href="#consult">Discover <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
-      </div>
-      <div class="ccard c3 reveal">
-        <div class="photo"></div>
-        <div class="body">
-          <span class="num">III</span>
-          <h3>Second Home &amp; Holiday-Let Care</h3>
+      </details>
+      <details name="care">
+        <summary><span class="acc__num">03</span><span class="acc__title">Second Home &amp; Holiday-Let Care</span><span class="acc__icon" aria-hidden="true"></span></summary>
+        <div class="acc__body">
+          <div class="acc__photo" style="background-image:url('https://images.unsplash.com/photo-1659559108995-a41c413392d6?q=80&w=1200&auto=format&fit=crop')"></div>
           <p>Discreet keyholding and considered care for homes you cannot always be present in — arriving to a home that is warm, ready and beautifully kept, every time.</p>
-          <a href="#consult" class="more">Discover</a>
+          <a class="text-link" href="#consult">Discover <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
-      </div>
+      </details>
     </div>
   </div>
 </section>
 
 <!-- ============ PRICING PHILOSOPHY ============ -->
-<section class="philosophy" id="philosophy">
-  <div class="wrap-narrow reveal">
-    <span class="eyebrow section-label">Our philosophy</span>
-    <h2>We believe fine home care should be measured in trust, not in hours.</h2>
+<section class="dark" id="philosophy">
+  <p class="eyebrow">Our philosophy</p>
+  <h2 class="section-title">We believe fine home care should be measured in trust, not in hours.</h2>
+  <div class="dark__body">
     <p>We do not bill by the hour or chase the lowest price. Instead, we offer a simple monthly care plan — a single, considered arrangement that reflects the standard of care your home receives and the relationship we build around it.</p>
     <p>It means no clock-watching, no surprises, and no sense that the care is rationed. Only the quiet confidence of knowing your home is in dependable hands, every week of the year.</p>
-    <div class="rule"></div>
   </div>
 </section>
 
 <!-- ============ PROCESS ============ -->
-<section class="process" id="process">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow section-label">How it begins</span>
-      <h2>A considered beginning</h2>
-      <p>Every relationship starts the same way — unhurried, personal, and built on understanding your home.</p>
+<section class="band" id="process">
+  <div class="inner">
+    <div class="split-head">
+      <div>
+        <p class="eyebrow">How it begins</p>
+        <h2 class="section-title">A considered<br>beginning.</h2>
+      </div>
+      <p class="lede">Every relationship starts the same way — unhurried, personal, and built on understanding your home.</p>
     </div>
-    <div class="steps reveal">
-      <div class="step"><div class="dot"></div><div class="sn">Step One</div><h4>Enquiry</h4><p>A brief, no-obligation conversation about your home and what you are looking for.</p></div>
-      <div class="step"><div class="dot"></div><div class="sn">Step Two</div><h4>Consultation</h4><p>We visit in person to understand your home, its character and your preferences.</p></div>
-      <div class="step"><div class="dot"></div><div class="sn">Step Three</div><h4>Your Care Plan</h4><p>A tailored proposal, written around your home and the standard of care it deserves.</p></div>
-      <div class="step"><div class="dot"></div><div class="sn">Step Four</div><h4>Welcome</h4><p>A gentle introduction, agreeing access, routines and the small details that matter.</p></div>
-      <div class="step"><div class="dot"></div><div class="sn">Step Five</div><h4>Ongoing Care</h4><p>The same trusted pair, returning to your home with quiet consistency.</p></div>
-      <div class="step"><div class="dot"></div><div class="sn">Step Six</div><h4>Looking Ahead</h4><p>Seasonal reviews and easy conversations, so your care evolves with your home.</p></div>
-    </div>
+    <ol class="steps">
+      <li><p class="num">01 / Step One</p><h3>Enquiry</h3><p>A brief, no-obligation conversation about your home and what you are looking for.</p></li>
+      <li><p class="num">02 / Step Two</p><h3>Consultation</h3><p>We visit in person to understand your home, its character and your preferences.</p></li>
+      <li><p class="num">03 / Step Three</p><h3>Your Care Plan</h3><p>A tailored proposal, written around your home and the standard of care it deserves.</p></li>
+      <li><p class="num">04 / Step Four</p><h3>Welcome</h3><p>A gentle introduction, agreeing access, routines and the small details that matter.</p></li>
+      <li><p class="num">05 / Step Five</p><h3>Ongoing Care</h3><p>The same trusted pair, returning to your home with quiet consistency.</p></li>
+      <li><p class="num">06 / Step Six</p><h3>Looking Ahead</h3><p>Seasonal reviews and easy conversations, so your care evolves with your home.</p></li>
+    </ol>
   </div>
 </section>
 
 <!-- ============ TESTIMONIALS ============ -->
-<section class="testi" id="testimonials">
-  <div class="wrap">
-    <div class="big-quote reveal">
-      <span class="quote-mark">&ldquo;</span>
-      <blockquote>Kirsten and Warren are excellent. Thoughtful, well planned, punctual, great at solving tricky problems and a pleasure to work with.</blockquote>
-      <cite>— Carrie A.</cite>
-    </div>
-    <div class="testi-row reveal">
-      <div class="mini-quote">
-        <blockquote>Kirsten &amp; Warren provide us with excellent housekeeping services to ensure our Holiday Rentals in Bath are looking their best&hellip; Very trustworthy and provide the perfect service for us.</blockquote>
-        <cite>— Beth E., Holiday Rentals in Bath</cite>
-      </div>
-      <div class="mini-quote">
-        <blockquote>Super helpful, professional and thorough&hellip; will be using for a monthly clean at new home. Thank you Kirsten and Warren!</blockquote>
-        <cite>— Nik D.</cite>
-      </div>
-    </div>
-    <p class="testi-source reveal"><a href="https://www.google.com/maps/place/CleanKeeps/@51.3801264,-2.36453,13z/data=!4m6!3m5!1s0x6685a21426138e71:0x41b4aa006ad9f80b!8m2!3d51.3801264!4d-2.36453!16s%2Fg%2F11xgjzhsrt" target="_blank" rel="noopener">Rated 5.0 from 6 reviews on Google</a></p>
+<section class="band band--stone" id="testimonials">
+  <div class="quote">
+    <p class="eyebrow">In their words</p>
+    <blockquote>“Kirsten and Warren are excellent. Thoughtful, well planned, punctual, great at solving tricky problems and a pleasure to work with.”</blockquote>
+    <cite>Carrie A.</cite>
   </div>
+  <div class="minis">
+    <div class="mini">
+      <blockquote>“Kirsten &amp; Warren provide us with excellent housekeeping services to ensure our Holiday Rentals in Bath are looking their best&hellip; Very trustworthy and provide the perfect service for us.”</blockquote>
+      <cite>Beth E., Holiday Rentals in Bath</cite>
+    </div>
+    <div class="mini">
+      <blockquote>“Super helpful, professional and thorough&hellip; will be using for a monthly clean at new home. Thank you Kirsten and Warren!”</blockquote>
+      <cite>Nik D.</cite>
+    </div>
+  </div>
+  <p class="source"><a class="text-link" href="https://www.google.com/maps/place/CleanKeeps/@51.3801264,-2.36453,13z/data=!4m6!3m5!1s0x6685a21426138e71:0x41b4aa006ad9f80b!8m2!3d51.3801264!4d-2.36453!16s%2Fg%2F11xgjzhsrt" target="_blank" rel="noopener">Rated 5.0 from 6 reviews on Google <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 11 3M5 3h6v6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
 </section>
 
 <!-- ============ ABOUT ============ -->
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="about-grid">
-      <div class="about-photo reveal"></div>
-      <div class="about-text reveal">
-        <span class="eyebrow section-label">The people behind CleanKeeps</span>
-        <h2>A husband-and-wife team, at your service</h2>
-        <p>CleanKeeps is not a company of contractors and call centres. It is the two of us — Kirsten and Warren — who personally care for every home on our books.</p>
-        <p>We built CleanKeeps because we believe the finest home care comes from genuine relationships: knowing a home as well as the people who live in it, noticing the things that go unsaid, and treating each home as though it were our own.</p>
-        <p>Caring for only a select number of homes is a deliberate choice. It is the only way to offer the consistency, discretion and personal attention we believe a fine home deserves.</p>
-        <div class="founder-names">Kirsten &amp; Warren</div>
-        <div class="founder-role">Founders &amp; Custodians, CleanKeeps</div>
-      </div>
-    </div>
+<section class="who" id="about">
+  <div class="who__photo" role="img" aria-label="Interior of a beautifully kept home"></div>
+  <div class="who__panel">
+    <p class="eyebrow">The people behind CleanKeeps</p>
+    <h2 class="section-title">A husband-and-wife team, at your service.</h2>
+    <p class="lede">CleanKeeps is not a company of contractors and call centres. It is the two of us — Kirsten and Warren — who personally care for every home on our books.</p>
+    <p class="lede">We built CleanKeeps because we believe the finest home care comes from genuine relationships: knowing a home as well as the people who live in it, noticing the things that go unsaid, and treating each home as though it were our own.</p>
+    <p class="lede">Caring for only a select number of homes is a deliberate choice. It is the only way to offer the consistency, discretion and personal attention we believe a fine home deserves.</p>
+    <div class="who__sig"><strong>Kirsten &amp; Warren</strong><span class="num">Founders &amp; Custodians</span></div>
   </div>
 </section>
 
 <!-- ============ TRUST & INSURANCE ============ -->
-<section class="assurance" id="assurance">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow section-label">Trust &amp; reassurance</span>
-      <h2>Your home, in safe hands</h2>
-      <p>Every safeguard you would expect — handled quietly, so you never have to ask.</p>
+<section class="band" id="assurance">
+  <div class="inner">
+    <div class="split-head">
+      <div>
+        <p class="eyebrow">Trust &amp; reassurance</p>
+        <h2 class="section-title">Your home,<br>in safe hands.</h2>
+      </div>
+      <p class="lede">Every safeguard you would expect — handled quietly, so you never have to ask.</p>
     </div>
-    <div class="assure-grid reveal">
-      <div class="acol">
-        <div class="ic"><svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 3l15 5.5v10c0 9-6.5 15.5-15 19-8.5-3.5-15-10-15-19v-10L21 3z"/><path d="M14 21l5 5 9-11"/></svg></div>
-        <h4>DBS Checked</h4>
-        <p>We both hold DBS certificates, for complete peace of mind.</p>
-      </div>
-      <div class="acol">
-        <div class="ic"><svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1"><rect x="6" y="12" width="30" height="22" rx="2"/><path d="M14 12V9a7 7 0 0114 0v3"/><circle cx="21" cy="23" r="2.5"/></svg></div>
-        <h4>Insured</h4>
-        <p>Public liability insurance in place for every home we care for.</p>
-      </div>
-      <div class="acol">
-        <div class="ic"><svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1"><circle cx="14" cy="21" r="8"/><path d="M22 21h16M34 21v6M30 21v4"/><circle cx="14" cy="21" r="2.5"/></svg></div>
-        <h4>Trusted Key Holders</h4>
-        <p>Secure, responsible keyholding handled with the utmost care.</p>
-      </div>
-      <div class="acol">
-        <div class="ic"><svg viewBox="0 0 42 42" fill="none" stroke="currentColor" stroke-width="1"><path d="M21 5l13 4.5V20c0 8-5.5 13.5-13 16.5C13.5 33.5 8 28 8 20V9.5L21 5z"/><path d="M21 15v6M21 25h.02"/></svg></div>
-        <h4>Discreet &amp; Confidential</h4>
-        <p>Absolute discretion, in your home and beyond it, always.</p>
-      </div>
-    </div>
+    <ul class="cols cols--4">
+      <li><p class="num">01</p><h3>DBS Checked</h3><p>We both hold DBS certificates, for complete peace of mind.</p></li>
+      <li><p class="num">02</p><h3>Insured</h3><p>Public liability insurance in place for every home we care for.</p></li>
+      <li><p class="num">03</p><h3>Trusted Key Holders</h3><p>Secure, responsible keyholding handled with the utmost care.</p></li>
+      <li><p class="num">04</p><h3>Discreet &amp; Confidential</h3><p>Absolute discretion, in your home and beyond it, always.</p></li>
+    </ul>
   </div>
 </section>
 
-<!-- ============ CONSULTATION CTA ============ -->
+<!-- ============ CONSULTATION ============ -->
 <section class="consult" id="consult">
-  <div class="wrap">
-    <div class="consult-grid">
-      <div class="reveal">
-        <span class="eyebrow section-label">Begin a conversation</span>
-        <h2>Arrange a private consultation</h2>
-        <p>If you would like to learn more about how we care for fine homes, we would be glad to meet you.</p>
-        <p>There is no obligation, and never any pressure — only an unhurried conversation about your home and how we might look after it.</p>
-        <div class="consult-direct">
-          <span>Or reach us directly</span>
-          <a href="tel:+447415988614">07415 988614</a>
-          <a href="mailto:contact@cleankeeps.co.uk">contact@cleankeeps.co.uk</a>
-        </div>
-      </div>
-      <form class="cform reveal" id="consultForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="10de8f9b-982a-43d0-b602-c9ecded2273c">
-        <input type="hidden" name="subject" value="New consultation request from CleanKeeps website">
-        <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
-        <div class="field">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" required placeholder="How may we address you?">
-        </div>
-        <div class="field">
-          <label for="email">Email or Telephone</label>
-          <input type="text" id="email" name="email" required placeholder="The best way to reach you">
-        </div>
-        <div class="field">
-          <label for="area">Where is your home?</label>
-          <input type="text" id="area" name="area" placeholder="Bath or nearby">
-        </div>
-        <div class="field">
-          <label for="msg">A little about your home <span style="text-transform:none;letter-spacing:0;opacity:.6;">(optional)</span></label>
-          <textarea id="msg" name="message" rows="2" placeholder="Anything you would like us to know"></textarea>
-        </div>
-        <button type="submit" class="btn btn-light">Request a Consultation</button>
-        <p class="note" id="formStatus" role="status">We reply personally, usually within a day.</p>
-      </form>
+  <div class="consult__inner">
+    <p class="eyebrow">Begin a conversation</p>
+    <h2 class="section-title">Arrange a private<br>consultation.</h2>
+    <div class="consult__lede">
+      <p>If you would like to learn more about how we care for fine homes, we would be glad to meet you.</p>
+      <p>There is no obligation, and never any pressure — only an unhurried conversation about your home and how we might look after it.</p>
     </div>
+
+    <div class="direct">
+      <div><p class="num">Or reach us directly · Telephone</p><a href="tel:+447415988614">07415 988614</a></div>
+      <div><p class="num">Or reach us directly · Email</p><a href="mailto:contact@cleankeeps.co.uk">contact@cleankeeps.co.uk</a></div>
+    </div>
+
+    <form class="form" id="consultForm" action="https://api.web3forms.com/submit" method="POST">
+      <input type="hidden" name="access_key" value="10de8f9b-982a-43d0-b602-c9ecded2273c">
+      <input type="hidden" name="subject" value="New consultation request from CleanKeeps website">
+      <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off">
+      <h3>Request a consultation</h3>
+      <p class="note" id="formStatus" role="status">We reply personally, usually within a day.</p>
+      <div class="fields">
+        <div class="field"><label for="name">Your Name</label><input id="name" name="name" type="text" required placeholder="How may we address you?"></div>
+        <div class="field"><label for="email">Email or Telephone</label><input id="email" name="email" type="text" required placeholder="The best way to reach you"></div>
+        <div class="field field--wide"><label for="area">Where is your home?</label><input id="area" name="area" type="text" placeholder="Bath or nearby"></div>
+        <div class="field field--wide"><label for="msg">A little about your home <span>(optional)</span></label><textarea id="msg" name="message" rows="3" placeholder="Anything you would like us to know"></textarea></div>
+      </div>
+      <button type="submit" class="button">Request a Consultation</button>
+    </form>
   </div>
 </section>
+
+</main>
 
 <!-- ============ FOOTER ============ -->
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div class="foot-brand">
-        <div class="foot-logo">CleanKeeps<span class="dot">.</span></div>
-        <p>Discreet, dependable home care for a select number of fine homes in Bath and the surrounding countryside.</p>
-        <p class="foot-contact"><a href="tel:+447415988614">07415 988614</a><br><a href="mailto:contact@cleankeeps.co.uk">contact@cleankeeps.co.uk</a></p>
-      </div>
-      <div class="foot-col">
-        <h5>Our Care</h5>
-        <a href="#care">Signature Home Care</a>
-        <a href="#care">Seasonal &amp; Deep Care</a>
-        <a href="#care">Second Home &amp; Holiday-Let</a>
-        <a href="#philosophy">Our Philosophy</a>
-      </div>
-      <div class="foot-col">
-        <h5>Company</h5>
-        <a href="#about">About Us</a>
-        <a href="#process">How It Works</a>
-        <a href="#assurance">Trust &amp; Insurance</a>
-        <a href="#consult">Arrange a Consultation</a>
-      </div>
+<footer class="footer">
+  <div class="footer__grid">
+    <div>
+      <a class="footer__brand" href="#">CleanKeeps</a>
+      <p>Discreet, dependable home care for a select number of fine homes in Bath and the surrounding countryside.</p>
+      <p style="margin-top:1rem"><a href="tel:+447415988614">07415 988614</a><a href="mailto:contact@cleankeeps.co.uk">contact@cleankeeps.co.uk</a></p>
     </div>
-    <div class="foot-bottom">
-      <div class="foot-tag">Private home care for fine homes in Bath.</div>
-      <div class="foot-legal">
-        &copy; 2026 CleanKeeps &nbsp;·&nbsp;
-        <a href="privacy-policy.html">Privacy Policy</a> &nbsp;·&nbsp;
-        <a href="cookie-notice.html">Cookie Notice</a>
-      </div>
+    <div>
+      <h4>Our Care</h4>
+      <a href="#care">Signature Home Care</a>
+      <a href="#care">Seasonal &amp; Deep Care</a>
+      <a href="#care">Second Home &amp; Holiday-Let</a>
+      <a href="#philosophy">Our Philosophy</a>
     </div>
+    <div>
+      <h4>Company</h4>
+      <a href="#about">About Us</a>
+      <a href="#process">How It Works</a>
+      <a href="#assurance">Trust &amp; Insurance</a>
+      <a href="#consult">Arrange a Consultation</a>
+    </div>
+  </div>
+  <div class="footer__base">
+    <span>Private home care for fine homes in Bath.</span>
+    <span>&copy; 2026 CleanKeeps · <a href="privacy-policy.html">Privacy Policy</a> · <a href="cookie-notice.html">Cookie Notice</a></span>
   </div>
 </footer>
 
 <script>
-  // Header scroll state
-  const header = document.getElementById('header');
-  const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 60);
-  window.addEventListener('scroll', onScroll, {passive:true});
-  onScroll();
-
   // Mobile menu
-  const toggle = document.getElementById('menuToggle');
-  const links = document.getElementById('navlinks');
-  toggle.addEventListener('click', () => links.classList.toggle('open'));
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
-
-  // Reveal on scroll
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  const t = document.getElementById('menuToggle'), p = document.getElementById('menuPanel');
+  t.addEventListener('click', () => { const o = p.classList.toggle('open'); t.setAttribute('aria-expanded', o); t.textContent = o ? 'Close' : 'Menu'; });
+  p.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { p.classList.remove('open'); t.setAttribute('aria-expanded', false); t.textContent = 'Menu'; }));
 
   // Consultation form — submit in background, confirm inline
   const consultForm = document.getElementById('consultForm');
